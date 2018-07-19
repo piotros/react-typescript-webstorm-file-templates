@@ -1,0 +1,32 @@
+## Name: React interfaces
+## Extension: interfaces.ts
+
+#if (${WITH_STYLES} != "")
+import { WithStyles } from '@material-ui/core';
+
+import { styles } from './${NAME}.styles';
+#end
+
+interface ${NAME}OwnProps {
+  // example: string;
+}
+
+#if (${WITH_CONNECT} != "")
+export interface StateToPropsInterface {
+  // example: string;
+}
+
+export interface DispatchToPropsInterface {
+  // example: (payload: ExampleActionPayload) => void;
+}
+#end
+
+export type ${NAME}Props =
+  #if (${WITH_STYLES} != "")
+    WithStyles<typeof styles> &
+  #end
+  #if (${WITH_CONNECT} != "")
+    StateToPropsInterface &
+    DispatchToPropsInterface &
+  #end
+  ${NAME}OwnProps;
