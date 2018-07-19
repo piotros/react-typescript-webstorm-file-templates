@@ -1,0 +1,16 @@
+## Name: React component
+## Extension: tsx
+
+import * as React from 'react';
+
+import { ${NAME}Props } from './${NAME}.interfaces';
+
+class ${NAME} extends React.Component<${NAME}Props> {
+  render() {
+    return (
+      <></>
+    );
+  }
+}
+
+export default ${NAME};
