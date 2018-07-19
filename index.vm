@@ -1,0 +1,4 @@
+## Name: React index
+## Extension: ts
+
+export { default as ${COMPONENT_NAME} } from './${COMPONENT_NAME}#if (${USE_CONTAINER} != "").container#end';
