@@ -10,7 +10,6 @@ import { styles } from './${NAME}.styles';
 interface ${NAME}OwnProps {
   // example: string;
 }
-
 #if (${WITH_CONNECT} != "")
 export interface StateToPropsInterface {
   // example: string;
