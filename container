@@ -1,0 +1,52 @@
+## Name: React container
+## Extension: container.ts
+
+#if (${WITH_CONNECT} != "")
+import { connect, Dispatch } from 'react-redux';
+#end
+#if (${WITH_STYLES} != "")
+import { withStyles } from '@material-ui/core';
+#end
+
+import ${NAME} from './${NAME}';
+#if (${WITH_CONNECT} != "")
+import { RootState } from 'store/rootReducer';
+#end
+#if (${WITH_STYLES} != "")
+import { styles } from './${NAME}.styles';
+#end
+#if (${WITH_CONNECT} != "")
+import {
+  DispatchToPropsInterface,
+  StateToPropsInterface
+} from './${NAME}.interfaces';
+
+const mapStateToProps = (state: RootState) => ({
+  // example: getExample(state)
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<{}>) => ({
+  // example: (payload: ExampleActionPayload) => dispatch(exampleAction(payload))
+});
+#end
+
+const ${NAME}Container =
+  #if (${WITH_CONNECT} != "")
+    connect<
+      StateToPropsInterface,
+      DispatchToPropsInterface
+    >(mapStateToProps, mapDispatchToProps)(
+  #end
+  #if (${WITH_STYLES} != "")
+    withStyles(styles)(
+  #end
+    ${NAME}
+  #if (${WITH_STYLES} != "")
+    )
+  #end
+  #if (${WITH_CONNECT} != "")
+    )
+  #end
+;
+
+export default ${NAME}Container;
